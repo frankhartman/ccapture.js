@@ -866,7 +866,13 @@ function CCapture( settings ) {
 					_step();
 				}
 
-			} else {
+			}
+			// Skip first frame that is black with Unity
+			else if(_frameCount == 0) {
+				_step();
+				_frameCount++;
+			} 
+			else {
 				_encoder.add( canvas );
 				_frameCount++;
 				_log( 'Full Frame! ' + _frameCount );
