@@ -593,7 +593,7 @@ function CCapture( settings ) {
         _encoder,
 		_timeouts = [],
 		_intervals = [],
-		_frameCount = 0,
+		_frameCount = -1,
 		_intermediateFrameCount = 0,
 		_lastFrame = null,
 		_requestAnimationFrameCallbacks = [],
@@ -868,7 +868,7 @@ function CCapture( settings ) {
 
 			}
 			// Skip first frame that is black with Unity
-			else if(_frameCount == 0) {
+			else if(_frameCount < 0) {
 				_step();
 				_frameCount++;
 			} 
